@@ -15,7 +15,7 @@ const Home = () => {
 
         async function fetchData() {
 
-            const read = await axios.get(api);
+            const read = await api.get("/");
             setThinks(read.data);
             
         }
@@ -26,7 +26,7 @@ const Home = () => {
 
     async function deleteAction(id) {
 
-        await axios.delete(api+id);
+        await api.delete('/'+id);
         window.location.reload();
         
     }

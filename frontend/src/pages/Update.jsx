@@ -18,7 +18,7 @@ const Update = () => {
 
         async function fetchData() {
 
-            const read = await axios.get(api+id);
+            const read = await api.get('/'+id);
             setTitle(read.data.title);
             setNote(read.data.note);
             
@@ -30,7 +30,7 @@ const Update = () => {
 
     async function updateThink() {
 
-        await axios.put(api+id , {title,note});
+        await api.put("/"+id , {title,note});
         nav("/");
         
     }

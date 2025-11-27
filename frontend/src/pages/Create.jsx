@@ -15,7 +15,7 @@ const Create = () => {
 
     async function createNote() {
         
-        await axios.post(api,{title,note});
+        await api.post('/',{title,note});
         nav("/");
         
     }
