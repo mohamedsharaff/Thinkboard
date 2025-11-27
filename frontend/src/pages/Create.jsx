@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate, Link } from 'react-router';
+import api from "../lib/api.js"
 
 
 const Create = () => {
@@ -14,7 +15,7 @@ const Create = () => {
 
     async function createNote() {
         
-        await axios.post('http://127.0.0.1:5000/thinkboard',{title,note});
+        await axios.post(api,{title,note});
         nav("/");
         
     }

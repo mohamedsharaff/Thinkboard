@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router';
 import { formatDate } from '../lib/utils';
+import api from '../lib/api';
 
 const Home = () => {
 
@@ -14,7 +15,7 @@ const Home = () => {
 
         async function fetchData() {
 
-            const read = await axios.get("http://localhost:5000/thinkboard");
+            const read = await axios.get(api);
             setThinks(read.data);
             
         }
@@ -25,7 +26,7 @@ const Home = () => {
 
     async function deleteAction(id) {
 
-        await axios.delete("http://localhost:5000/thinkboard/"+id);
+        await axios.delete(api+id);
         window.location.reload();
         
     }

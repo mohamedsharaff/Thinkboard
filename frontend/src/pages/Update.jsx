@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router';
+import api from '../lib/api';
 
 
 const Update = () => {
@@ -17,7 +18,7 @@ const Update = () => {
 
         async function fetchData() {
 
-            const read = await axios.get("http://localhost:5000/thinkboard/"+id);
+            const read = await axios.get(api+id);
             setTitle(read.data.title);
             setNote(read.data.note);
             
@@ -29,7 +30,7 @@ const Update = () => {
 
     async function updateThink() {
 
-        await axios.put("http://localhost:5000/thinkboard/"+id , {title,note});
+        await axios.put(api+id , {title,note});
         nav("/");
         
     }
